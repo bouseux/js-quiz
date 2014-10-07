@@ -14,7 +14,7 @@ $(function() {
     'question': 'What is the result?',
     'code': 'code3.html',
     'choices': ['true', 'false', 'TypeError'],
-    'answer': 'true';
+    'answer': 'true'
   }, {
     'question': 'What is the result?',
     'code': 'code4.html',
@@ -41,16 +41,36 @@ $(function() {
     var question = questions[current];
     var numChoices = question.choices.length;
     var ul = $('ul');
+    var li;
 
     $('.question').text(question.question);
+
     $.get('views/' + question.code, function(data) {
       console.log('views/' + question.code);
       $('.code').text(data);
     });
 
     for(var i = 0; i < numChoices; i++) {
-      ul.append('<li>' + question.choices[i] + '</li>');
+      li = $('<li>' + question.choices[i] + '</li>');
+      li.click(selectAnswer);
+      ul.append(li);
     }
+  };
+
+  var selectAnswer = function() {
+    var userAnswer = $(this).text();
+    console.log(userAnswer);
+    $('.quiz').fadeOut('fast', function() {
+      clearQuestion();
+      $('.result').fadeIn('fast');
+    });
+    // clearQuestion();
+  };
+
+  var clearQuestion = function() {
+    $('ul').empty();
+    $('.question').empty();
+    $('.code').empty();
   };
 
   $('.start').click(function() {
