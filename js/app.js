@@ -43,13 +43,16 @@ $(function() {
     var ul = $('ul');
     var li;
 
+    // set the question
     $('.question').text(question.question);
 
+    // set the code
     $.get('views/' + question.code, function(data) {
       console.log('views/' + question.code);
       $('.code').text(data);
     });
 
+    // set the answer choices
     for(var i = 0; i < numChoices; i++) {
       li = $('<li>' + question.choices[i] + '</li>');
       li.click(selectAnswer);
@@ -59,12 +62,12 @@ $(function() {
 
   var selectAnswer = function() {
     var userAnswer = $(this).text();
-    console.log(userAnswer);
+
     $('.quiz').fadeOut('fast', function() {
       clearQuestion();
+      setFeedback(userAnswer);
       $('.result').fadeIn('fast');
     });
-    // clearQuestion();
   };
 
   var clearQuestion = function() {
@@ -72,6 +75,16 @@ $(function() {
     $('.question').empty();
     $('.code').empty();
   };
+
+  var setFeedback = function(userAnswer) {
+    var correctAnswer = questions[current].answer;
+
+    if(userAnswer == correctAnswer) {
+      $('.feedback').text('Correct!');
+    } else {
+      $('.feedback').text('Incorrect :(, correct answer is: ' + correctAnswer);
+    }
+  }
 
   $('.start').click(function() {
     setQuestion();
