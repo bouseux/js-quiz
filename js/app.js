@@ -92,4 +92,26 @@ $(function() {
       $('.quiz').fadeIn('fast');
     });
   });
+
+  $('.continue').click(function() {
+    current++;
+    if(current < questions.length) {
+      setQuestion();
+      $('.result').fadeOut('fast', function() {
+        $('.quiz').fadeIn('fast');
+      });
+    } else {
+      $('.result').fadeOut('fast', function() {
+        $('.score').fadeIn('fast');
+      });
+    }
+  });
+
+  $('.retake').click(function() {
+    current = 0;
+    setQuestion();
+    $('.score').fadeOut('fast', function() {
+      $('.quiz').fadeIn('fast');
+    });
+  });
 });
