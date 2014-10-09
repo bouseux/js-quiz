@@ -37,6 +37,11 @@ pre {
   font-family: 'Ubuntu Mono', monospace;
 }
 
+ul {
+  width: 430px;
+  margin: 0 auto;
+}
+
 .welcome {
   text-align: center;
 }
