@@ -20,3 +20,7 @@ h1 {
   width: 253px;
   margin: 0 auto;
 }
+
+.welcome {
+  text-align: center;
+}
