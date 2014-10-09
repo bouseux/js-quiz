@@ -21,6 +21,18 @@ h1 {
   margin: 0 auto;
 }
 
+pre {
+  font-family: 'Ubuntu Mono', monospace;
+}
+
 .welcome {
   text-align: center;
+}
+
+.quiz h4 {
+  text-align: center;
+}
+
+.quiz pre {
+  margin: 0 auto;
 }
