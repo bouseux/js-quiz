@@ -39,7 +39,9 @@ pre {
 
 ul {
   width: 430px;
-  margin: 0 auto;
+  margin: 15px auto 0 auto;
+  cursor: pointer;
+  list-style-type: none;
 }
 
 .welcome {
@@ -48,4 +50,9 @@ ul {
 
 .quiz h4 {
   text-align: center;
+}
+
+.continue, .retake {
+  display: block;
+  margin: 0 auto;
 }
