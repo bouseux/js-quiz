@@ -1,32 +1,25 @@
-.quiz {
-  display: none;
-  margin-top: 110px;
+.welcome, .quiz, .result, .score {
+  margin-top: 75px;
 }
 
-.result {
-  display: none;
-}
-
-.score {
+.quiz, .result, .score {
   display: none;
 }
 
-h1, h2, h3 {
+h1, h2, h3, li {
   font-family: 'Inconsolata', sans-serif;
 }
 
-img {
+img, .start, .continue, .retake {
   display: block;
+  margin: 0 auto;
+}
+
+img {
   width: 100px;
-  margin: 0 auto;
 }
 
-h1 {
-  width: 289px;
-  margin: 0 auto;
-}
-
-h3 {
+h1, h2, h3 {
   text-align: center;
 }
 
@@ -45,16 +38,6 @@ ul {
   list-style-type: none;
 }
 
-.welcome {
-  margin-top: 110px;
-  text-align: center;
-}
-
-.quiz h4 {
-  text-align: center;
-}
-
-.continue, .retake {
-  display: block;
-  margin: 0 auto;
+li {
+  height: 25px;
 }
