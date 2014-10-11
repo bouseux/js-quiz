@@ -41,3 +41,8 @@ ul {
 li {
   height: 25px;
 }
+
+li:hover {
+  color: white;
+  background-color: black;
+}
