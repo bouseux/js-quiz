@@ -13,7 +13,9 @@ h1, h2, h3, button {
 button {
   height: 32px;
   border: 1px solid black;
+  color: black;
   background-color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 button:hover {
@@ -59,6 +61,7 @@ li {
   padding: 0 5px;
   line-height: 25px;
   font-family: 'Ubuntu Mono', monospace;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 li:hover {
