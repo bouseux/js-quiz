@@ -34,6 +34,11 @@ $(function() {
     'code': 'code7.html',
     'choices': ['1, 2', '1, 3', '2, 1', '2, 3', '3, 1', '3, 2'],
     'answer': '3, 1'
+  }, {
+    'question': 'What is x?',
+    'code': 'code8.html',
+    'choices': ['null', '[]', 'undefined', 'throw'],
+    'answer': '[]'
   }];
 
   var current = 0;
@@ -58,7 +63,7 @@ $(function() {
 
     // set the code
     $.get('views/' + question.code, function(data) {
-      $('.code').text(data);
+      $('pre').text(data);
     });
 
     // set the answer choices
@@ -107,6 +112,7 @@ $(function() {
   $('.continue').click(function() {
     var percent;
     current++;
+
     if(current < questions.length) {
       setQuestion();
       $('.result').fadeOut('fast', function() {
@@ -124,6 +130,7 @@ $(function() {
   });
 
   $('.retake').click(function() {
+    // reset variables since we are starting a new quiz
     current = 0;
     correct = 0;
     wrong = 0;
