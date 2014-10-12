@@ -1,5 +1,4 @@
 $(function() {
-  var current = 0;
   var questions = [{
     'question': 'What is printed in the console?',
     'code': 'code1.html',
@@ -37,18 +36,28 @@ $(function() {
     'answer': '3, 1'
   }];
 
+  var current = 0;
+  var correct = 0;
+  var wrong = 0;
+  var total = questions.length;
+
   var setQuestion = function() {
     var question = questions[current];
     var numChoices = question.choices.length;
     var ul = $('ul');
     var li;
 
+    // set the question number
+    $('.question-number').text('Question ' + (current + 1) + '/' + total);
+
+    // set the current score
+    $('.current-score').text('Correct: ' + correct + ' Incorrect: ' + wrong);
+
     // set the question
     $('.question').text(question.question);
 
     // set the code
     $.get('views/' + question.code, function(data) {
-      console.log('views/' + question.code);
       $('.code').text(data);
     });
 
@@ -80,9 +89,11 @@ $(function() {
     var correctAnswer = questions[current].answer;
 
     if(userAnswer == correctAnswer) {
+      correct++;
       $('.feedback').text('Correct!');
     } else {
-      $('.feedback').text('Incorrect :(, correct answer is: ' + correctAnswer);
+      wrong++;
+      $('.feedback').text('Incorrect :(');
     }
   }
 
@@ -94,6 +105,7 @@ $(function() {
   });
 
   $('.continue').click(function() {
+    var percent;
     current++;
     if(current < questions.length) {
       setQuestion();
@@ -101,6 +113,10 @@ $(function() {
         $('.quiz').fadeIn('fast');
       });
     } else {
+      percent = (correct * 100 / (correct + wrong)).toFixed(2);
+      $('.correct').text('Correct: ' + correct);
+      $('.wrong').text('Incorrect: ' + wrong);
+      $('.percent').text('Final score: ' + percent + '%');
       $('.result').fadeOut('fast', function() {
         $('.score').fadeIn('fast');
       });
@@ -109,6 +125,8 @@ $(function() {
 
   $('.retake').click(function() {
     current = 0;
+    correct = 0;
+    wrong = 0;
     setQuestion();
     $('.score').fadeOut('fast', function() {
       $('.quiz').fadeIn('fast');
