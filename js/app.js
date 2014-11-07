@@ -2,9 +2,9 @@ $(function() {
   var questions = [{
     'question': 'What is the result of executing this piece of code?',
     'code': 'code0.html',
-    'choices': ['"The future says: We STILL have no flying cars." is printed',
-                '"TypeError: undefined is not a function" error occurs',
-                '"RangeError: Maximun call stack size exceeded" error occurs'],
+    'choices': ['"TypeError: undefined is not a function" error occurs',
+                '"RangeError: Maximun call stack size exceeded" error occurs',
+                '"The future says: We STILL have no flying cars." is printed'],
     'answer': '"The future says: We STILL have no flying cars." is printed'
   }, {
     'question': 'What is printed in the console?',
